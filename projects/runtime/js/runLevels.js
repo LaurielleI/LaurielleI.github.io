@@ -73,7 +73,22 @@ var runLevels = function (window) {
     createEnemy(1200, groundY - 50);
 
     function createReward(){
-      
+    var reward = game.createGameItem("reward", 25);
+    var yellowSquare = draw.rect(50, 50, "yellow");
+    yellowSquare.x = 25;
+    yellowSquare.y = 25;
+    reward.addChild(yellowSquare);
+    reward.x = x;
+    reward.y = y;
+    game.addGameItem(reward);
+    reward.velocityX = 10;
+    reward.rotationalVelocity = 10;
+    reward.onPlayerCollision = function (){
+      game.changeIntegrity(10);
+    };
+    }
+    function createMarker(){
+
     }
     function startLevel() {
       // TODO 13 goes below here
